@@ -27,7 +27,7 @@ SECRET_KEY = ')45!0n*+y#y(o4w_q^uqxz0(+zt6@!k%h358#$z$k_2wnmethz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.pleasantonpark.com']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'budgetApp',
 ]
 

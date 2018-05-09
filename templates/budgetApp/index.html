@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   </head>
   <body>
+      {% load humanize %}
     <div class="container jumbotron">
       <h1>Shellenberger Monthly Budget</h1>
       <table>
@@ -16,12 +17,12 @@
         {% for i in stuff %}
         <tr>
           <td>{{i.top_name}}</td>
-          <td>{{i.budgeted}}</td>
-          <td>{{i.actual}}</td>
-          <td><form class="" method="post">
-            <input type="text" name="" value="">
+          <td>{{i.budgeted|intcomma}}</td>
+          <td>{{i.actual|intcomma}}</td>
+          <td><form class="lineItem" method="post">
+            <input type="number" name="" value="">
             {% csrf_token %}
-            <input type="submit" class="btn btn-primary" value="Submit">
+            <input type="submit" class="btn btn-primary" value="Add">
           </form></td>
         </tr>
         {% endfor %}
