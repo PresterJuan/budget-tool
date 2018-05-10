@@ -7,6 +7,8 @@
   </head>
   <body>
       {% load humanize %}
+      {% load static %}
+      <script src = {% static "/budget.js" %} ></script>
     <div class="container jumbotron">
       <h1>Shellenberger Monthly Budget</h1>
       <table>
@@ -15,14 +17,14 @@
         <th>Spent</th>
         <th>New Expense</th>
         {% for i in stuff %}
-        <tr>
-          <td>{{i.top_name}}</td>
-          <td>{{i.budgeted|intcomma}}</td>
-          <td>{{i.actual|intcomma}}</td>
-          <td><form class="lineItem" method="post">
+        <tr id = "{{i.top_name}}">
+          <td class='category'>{{i.top_name}}</td>
+          <td class='budgeted'>{{i.budgeted|intcomma}}</td>
+          <td class='spent'>{{i.actual|intcomma}}</td>
+          <td class='new_expense'><form class="lineItem" method="post">
             <input type="number" name="" value="">
             {% csrf_token %}
-            <input type="submit" class="btn btn-primary" value="Add">
+            <input type="submit" class="btn btn-primary" id = "{{i.top_name}}" value="Add" onClick="adjustSpent(this.id)">
           </form></td>
         </tr>
         {% endfor %}
