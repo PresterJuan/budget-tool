@@ -24,7 +24,7 @@
           <td class='new_expense'><form class="lineItem" method="post">
             <input type="number" name="" value="">
             {% csrf_token %}
-            <input type="submit" class="btn btn-primary" id = "{{i.top_name}}" value="Add" onClick="adjustSpent(this.id)">
+            <input type="submit" class="btn btn-primary" id = "{{i.top_name}}" value="Add" onClick="adjustSpent(this)">
           </form></td>
         </tr>
         {% endfor %}

@@ -14,5 +14,6 @@ def index(request):
             form.save(commit=True)
             return index(request)
         else:
-            print ('error form is invalid')
+            pass
+            #print ('error form is invalid')
     return render(request,'budgetApp/index.html', {'stuff': budget_list, 'form':form})
