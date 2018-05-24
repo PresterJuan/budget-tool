@@ -4,4 +4,5 @@ from budgetApp import urls, views
 
 urlpatterns = [
     path('',views.index, name='home'),
+    path('/test',views.test, name='test'),
 ]

@@ -22,9 +22,9 @@
           <td class='budgeted'>{{i.budgeted|intcomma}}</td>
           <td class='spent'>{{i.actual|intcomma}}</td>
           <td class='new_expense'><form class="lineItem" method="post">
-            <input type="number" name="" value="">
+            <input type="number" name="newExpense" value="">
             {% csrf_token %}
-            <input type="submit" class="btn btn-primary" id = "{{i.top_name}}" value="Add" onClick="adjustSpent(this)">
+            <input type="submit" class="btn btn-primary" name="addLineItem" id = "{{i.top_name}}" value="Add" onClick="adjustSpent(this.id)">
           </form></td>
         </tr>
         {% endfor %}

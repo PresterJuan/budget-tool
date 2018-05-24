@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from budgetApp import urls
+from basic_app import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('budgetApp.urls')),
+    path('basic_app/',include('basic_app.urls')),
 ]
