@@ -12,6 +12,20 @@
     <div class="container jumbotron">
       <h1>Shellenberger Monthly Budget</h1>
       <table>
+          <th>Monthly Income</th>
+          <th>Budgeted Spending</th>
+          <th>Actual Spending</th>
+          <th>Budgeted Savings/Losses</th>
+          <th>Actual Savings/Losses</th>
+          <tr>
+              <td>$4,693</td>
+              <td>{{amount_budgeted}}</td><!--Get this data to insert from the view.py-->
+              <td>{{amount_spent}}</td><!--Get this data to insert from the view.py-->
+              <td>{{budgeted_saved}}</td>
+              <td>{{amount_saved}}</td><!--Get this data to insert from the view.py-->
+          </tr>
+      </table>
+      <table>
         <th>Category</th>
         <th>Budgeted</th>
         <th>Spent</th>
@@ -24,7 +38,7 @@
           <td class='new_expense'><form class="lineItem" method="post">
             <input type="number" name="newExpense" value="">
             {% csrf_token %}
-            <input type="submit" class="btn btn-primary" name="addLineItem" id = "{{i.top_name}}" value="Add" onClick="adjustSpent(this.id)">
+            <input type="submit" class="btn btn-primary" name="Add"  value="{{i.top_name}}" onClick="adjustSpent(this.id)">
           </form></td>
         </tr>
         {% endfor %}
@@ -34,7 +48,7 @@
       <form method="post">
         {{ form.as_p }}
         {% csrf_token %}
-        <input type="submit" class="btn btn-primary" value="Submit">
+        <input type="submit" name ="newCategory" class="btn btn-primary" value="Submit">
       </form>
     </div>
 
