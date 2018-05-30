@@ -20,7 +20,7 @@ def index(request):
 
     if request.method == "POST":
 
-        #postData = 'Yes'
+        #postData = request.POST
         #return render(request,'budgetApp/test.html', {'postData': postData})
 
         if 'newExpense' in request.POST:

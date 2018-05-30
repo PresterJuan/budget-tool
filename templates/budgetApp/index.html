@@ -11,20 +11,28 @@
       <script src = {% static "/budget.js" %} ></script>
     <div class="container jumbotron">
       <h1>Shellenberger Monthly Budget</h1>
+    </div>
+    <div class="container jumbotron">
       <table>
-          <th>Monthly Income</th>
-          <th>Budgeted Spending</th>
-          <th>Actual Spending</th>
-          <th>Budgeted Savings/Losses</th>
-          <th>Actual Savings/Losses</th>
+          <div class="row">
+              <div class="col-auto"><th>Salary</th></div>
+              <div class="col-auto"><th>Budgeted Spending</th></div>
+              <div class="col-auto"><th>Actual Spending</th></div>
+              <div class="col-auto"><th>Budgeted Savings</th></div>
+              <div class="col-auto"><th>Actual Savings/Losses</th></div>
+          </div>
+        <div class="row">
           <tr>
-              <td>$4,693</td>
-              <td>{{amount_budgeted}}</td><!--Get this data to insert from the view.py-->
-              <td>{{amount_spent}}</td><!--Get this data to insert from the view.py-->
-              <td>{{budgeted_saved}}</td>
-              <td>{{amount_saved}}</td><!--Get this data to insert from the view.py-->
+              <div class="col-auto"><td>$4,693</td></div>
+              <div class="col-auto"><td>{{amount_budgeted}}</td></div><!--Get this data to insert from the view.py-->
+              <div class="col-auto"><td>{{amount_spent}}</td></div><!--Get this data to insert from the view.py-->
+              <div class="col-auto"><td>{{budgeted_saved}}</td></div>
+              <div class="col-auto"><td>{{amount_saved}}</td></div><!--Get this data to insert from the view.py-->
           </tr>
+          </div>
       </table>
+      </div>
+    <div class="container">
       <table>
         <th>Category</th>
         <th>Budgeted</th>
@@ -38,7 +46,7 @@
           <td class='new_expense'><form class="lineItem" method="post">
             <input type="number" name="newExpense" value="">
             {% csrf_token %}
-            <input type="submit" class="btn btn-primary" name="Add"  value="{{i.top_name}}" onClick="adjustSpent(this.id)">
+            <button type="submit" class="btn btn-primary" name="Add"  value="{{i.top_name}}" onClick="adjustSpent(this.id)">Submit</button>
           </form></td>
         </tr>
         {% endfor %}
