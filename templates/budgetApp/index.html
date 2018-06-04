@@ -1,13 +1,23 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
   <head>
     <meta charset="utf-8">
     <title>SAVE DAT CASH MONEY HONEY</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <!--<link rel="stylesheet" link href="static/css/budget.css">-->
+    <link rel="stylesheet" href="{% static "css/budget.css" %}" type="text/css"/>
   </head>
+  <style>
+      .spaced {width:20%; text-align:center; color:black;}
+      .budgeted {width:15%; text-align:center;}
+      .spent {width:15%; text-align:center;}
+  </style>
+
+
   <body>
       {% load humanize %}
-      {% load static %}
       <script src = {% static "/budget.js" %} ></script>
     <div class="container jumbotron">
       <h1>Shellenberger Monthly Budget</h1>
@@ -15,19 +25,21 @@
     <div class="container jumbotron">
       <table>
           <div class="row">
-              <div class="col-auto"><th>Salary</th></div>
-              <div class="col-auto"><th>Budgeted Spending</th></div>
-              <div class="col-auto"><th>Actual Spending</th></div>
-              <div class="col-auto"><th>Budgeted Savings</th></div>
-              <div class="col-auto"><th>Actual Savings/Losses</th></div>
+              <tr>
+              <div class="col-auto"><th class="spaced">Salary</th></div>
+              <div class="col-auto"><th class="spaced">Budgeted Spending</th></div>
+              <div class="col-auto"><th class="spaced">Actual Spending</th></div>
+              <div class="col-auto"><th class="spaced">Budgeted Savings</th></div>
+              <div class="col-auto"><th class="spaced">Actual Savings/Losses</th></div>
+              </tr>
           </div>
         <div class="row">
           <tr>
-              <div class="col-auto"><td>$4,693</td></div>
-              <div class="col-auto"><td>{{amount_budgeted}}</td></div><!--Get this data to insert from the view.py-->
-              <div class="col-auto"><td>{{amount_spent}}</td></div><!--Get this data to insert from the view.py-->
-              <div class="col-auto"><td>{{budgeted_saved}}</td></div>
-              <div class="col-auto"><td>{{amount_saved}}</td></div><!--Get this data to insert from the view.py-->
+              <div class="spaced col-auto"><td class="spaced">$4,693</td></div>
+              <div class="spaced col-auto"><td class="spaced">{{amount_budgeted|intcomma}}</td></div><!--Get this data to insert from the view.py-->
+              <div class="spaced col-auto"><td class="spaced">{{amount_spent|intcomma}}</td></div><!--Get this data to insert from the view.py-->
+              <div class="spaced col-auto"><td class="spaced">{{budgeted_saved}}</td></div>
+              <div class="spaced col-auto"><td class="spaced">{{amount_saved|intcomma}}</td></div><!--Get this data to insert from the view.py-->
           </tr>
           </div>
       </table>
@@ -35,9 +47,9 @@
     <div class="container">
       <table>
         <th>Category</th>
-        <th>Budgeted</th>
-        <th>Spent</th>
-        <th>New Expense</th>
+        <th class="budgeted">Budgeted</th>
+        <th class="spent">Spent</th>
+        <th class="new_expense">New Expense</th>
         {% for i in stuff %}
         <tr id = "{{i.top_name}}">
           <td class='category'>{{i.top_name}}</td>
@@ -51,7 +63,7 @@
         </tr>
         {% endfor %}
       </table>
-
+        <p></p>
       <h5>Add a new category</h5>
       <form method="post">
         {{ form.as_p }}
