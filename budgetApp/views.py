@@ -15,7 +15,7 @@ def index(request):
         amount_budgeted += i.budgeted
         amount_spent += i.actual
     budgeted_saved = income - amount_budgeted
-    amount_saved = (income-amount_spent)
+    amount_saved = (amount_budgeted-amount_spent)
 
 
     if request.method == "POST":

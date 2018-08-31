@@ -17,9 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from budgetApp import urls
 from basic_app import urls
+from learningUsersApp import views, urls
+from harvesterTemplates import urls
+from advanced_section import urls
+from mysite import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('budgetApp.urls')),
     path('basic_app/',include('basic_app.urls')),
+    path('learningUsersApp/', include('learningUsersApp.urls')),
+    path('harvester/', include('harvesterTemplates.urls')),
+    path('advanced/', include('advanced_section.urls')),
+    path('blog/', include('mysite.urls')),
 ]
