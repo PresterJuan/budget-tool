@@ -20,7 +20,7 @@
       {% load humanize %}
       <script src = {% static "/budget.js" %} ></script>
     <div class="container jumbotron">
-      <h1>Shellenberger Monthly Budget</h1>
+      <h1>Monthly Budget</h1>
     </div>
     <div class="container jumbotron">
       <table>
@@ -35,7 +35,6 @@
           </div>
         <div class="row">
           <tr>
-              <!--<div class="spaced col-auto"><td class="spaced">$4,693</td></div>-->
               <div class="spaced col-auto"><td class="spaced">{{amount_budgeted|intcomma}}</td></div><!--Get this data to insert from the view.py-->
               <div class="spaced col-auto"><td class="spaced">{{amount_spent|intcomma}}</td></div><!--Get this data to insert from the view.py-->
               <!--<div class="spaced col-auto"><td class="spaced">{{budgeted_saved}}</td></div>-->
