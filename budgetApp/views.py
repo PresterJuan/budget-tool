@@ -10,7 +10,7 @@ def index(request):
     budget_list = Stuff.objects.order_by('top_name')
     amount_budgeted = 0
     amount_spent = 0
-    income = 4693
+    income = 0
     for i in budget_list:
         amount_budgeted += i.budgeted
         amount_spent += i.actual
